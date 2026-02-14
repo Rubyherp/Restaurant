@@ -1,8 +1,13 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { watchFile } = require("node:fs");
-const path = require("node:path");
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import { watchFile } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "url";
 
-module.exports = {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+export default {
     mode: "development",
     entry: "./src/index.js",
     output: {
