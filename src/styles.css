@@ -76,8 +76,60 @@ button:hover {
 }
 
 #content {
+    /* border: 1px solid brown; */
     align-self: center;
-    border: 1px solid red;
+    border-radius: 50px;
     height: auto;
     width: 70%;
+    padding: 20px 20px;
+}
+
+.review-container {
+    /* border: 1px solid red; */
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+}
+
+.review {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    & > img {
+    height: 100px;
+    }
+}
+
+.commendation-container {
+    /* border: 1px solid red; */
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+}
+
+.commendation {
+    font-family: sofa;
+    font-weight: normal;
+    font-size: 20px;
+    border: 1px solid brown;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.details {
+    font-size: 30px;
+    border: 1px solid brown;
+    padding-top: 10px;
+    align-self: flex-end;
 }
