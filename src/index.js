@@ -4,6 +4,10 @@ import michelinStar from "./images/MichelinStar.svg";
 import locationPNG from "./images/location.png";
 import barImg from "./images/barImg.jpg";
 
+// variable 
+let currentPage = "nothome";
+
+// HOME PAGE ================================================================================================
 // classes
 class Review {
   name;
@@ -105,7 +109,7 @@ function loadCommendation(arrCommendation) {
     para.textContent = "\" " + arrCommendation[i].commendation + " \"";
     const details = document.createElement("div");
     details.classList.add("details")
-    const detailString = "~" + arrCommendation[i].name + " " + arrCommendation[i].title;
+    const detailString = "~" + arrCommendation[i].name + ", " + arrCommendation[i].title;
     details.textContent = detailString;
 
     div.appendChild(block);
@@ -226,53 +230,187 @@ function loadContacts(contactData) {
     content.appendChild(contactsContainer);
 }
 
+// load HOME page
+function loadHome() {
+  content.innerHTML = "";
+  currentPage = "home";
+  
+  // load review
+  const arrReview = [];
+  const google = new Review("Google", googleLogo, 5);
+  const michelin = new Review("Michelin Guide", michelinStar, 1);
+  arrReview.push(google);
+  arrReview.push(michelin);
+  loadReview(arrReview);
+
+  // load commendation
+  const arrCommendation = [];
+  const xn = new Commendation(
+    "Xiang Neng",
+    "CEO, XN's Paradise",
+    "I had an absolutely wonderful experience dining here. From the moment I walked in, the atmosphere was warm and inviting, and the staff made me feel genuinely welcome. The food was beautifully presented and bursting with flavor—clearly prepared with care and high-quality ingredients. Every detail, from the attentive service to the perfectly balanced dishes, reflected a true passion for hospitality. I highly recommend this restaurant to anyone looking for an exceptional dining experience, and I cannot wait to return.",
+  );
+  const xz = new Commendation(
+    "xz",
+    "Attorney General, Department of Justice",
+    "Fantastic food, welcoming atmosphere, and truly attentive service. Every dish was flavorful and beautifully prepared. A great place to enjoy a memorable meal—I’ll definitely be back!",
+  );
+  arrCommendation.push(xn);
+  arrCommendation.push(xz);
+  loadCommendation(arrCommendation);
+
+  // load location
+  const loc = new Location(
+    locationPNG,
+    "1 Bayfront Avenue, Hotel, Tower 3 Marina Bay Sands, 018971",
+  );
+  loadLocationDetails(loc);
+
+  //load instructions
+  const arrInstr = [];
+  const instr_1 = new Instructions(
+    "The Day Begins",
+    "Awaken your senses with artisan coffee, delicate pastries, and beautifully prepared breakfast dishes inspired by fresh, local ingredients.",
+  );
+
+  const instr_2 = new Instructions(
+    "Midday Delights",
+    "Enjoy a thoughtfully curated lunch experience featuring seasonal flavors, vibrant plates, and satisfying favorites reimagined.",
+  );
+
+  const instr_3 = new Instructions(
+    "Evening ChillOut",
+    "Settle into the evening with refined entrées, signature cocktails, and an inviting ambiance perfect for savoring every moment.",
+  );
+  arrInstr.push(instr_1);
+  arrInstr.push(instr_2);
+  arrInstr.push(instr_3);
+  loadInstructions(arrInstr);
+
+  // contacts;
+  const contacts = new Contacts(
+    "1 Bayfront Avenue, Hotel, Tower 3 Marina Bay Sands, 018971",
+    "(+65) 98761234",
+    "Instagram: @TheTipsyBar",
+    "TheTipsyBar@gmail.com",
+  );
+  loadContacts(contacts);
+}  
+// HOME PAGE ================================================================================================
+
+// MENU PAGE ================================================================================================
+
+// class
+class Category {
+  name;
+  time;
+  imageURL;
+  description;
+  menuURL;
+
+  constructor(name, time, imageURL, description, meneURL) {
+    this.name = name;
+    this.time = time;
+    this.imageURL = imageURL;
+    this.description = description;
+    this.menuURL = meneURL;
+  }
+
+}
+
+function loadMenu() {
+  // variables;
+  let arrMenu = [];
+  let currCat = 0; // if even right, odd left
+
+  // categories
+  // not yet add image URl
+  const coffee = new Category(
+    "Coffee",
+    "10:00",
+    "imge URL TBC",
+    "Start your day with our speciality coffee. Smooth, expressive, and crafted with a precise blend of powerful coffee beans and savoury milk",
+    "coffee menu link",
+  );
+  const meal = new Category(
+    "Finest Dining",
+    "14:00",
+    "image URL TBC",
+    "Indulge in our finest dining experience, where seasonal ingredients meet culinary artistry. Each dish is thoughtfully crafted to deliver bold flavors, elegant presentation, and a truly memorable gastronomic journey.",
+    "meal menu link",
+  );
+  const wine = new Category(
+    "Fine Wines",
+    "17:00",
+    "image URL TBC",
+    "Explore our curated selection of fine wines, featuring elegant reds, crisp whites, and sparkling varieties sourced from renowned vineyards. Each bottle is chosen to perfectly complement your dining experience and elevate every occasion.",
+    "wine menu link",
+  );
+  const cocktail = new Category(
+    "Signature Cocktails",
+    "20:00",
+    "image URL TBC",
+    "Discover our handcrafted signature cocktails, expertly mixed with premium spirits, fresh ingredients, and creative flair. From timeless classics to bold house creations, each drink is designed to delight and impress.",
+    "cocktail menu link",
+  );
+
+  catArr.push(coffee);
+  catArr.push(meal);
+  catArr.push(wine);
+  catArr.push(cocktail);
+
+  const menuContainer = document.createElement("div");
+
+  // header
+  const headerContainer = document.createElement("div");
+  headerContainer.classList.add("header-container");
+  const header = document.createElement("div");
+  header.classList.add("header");
+  const subheader = document.createElement("div");
+  subheader.classList.add("subheader");
+  header.textContent = "The Tipsy Bar";
+  subheader.textContent = "Since 1978";
+
+  // stopped here tbc
+  for (let i = 0; i < arrMenu; i++) {
+    const main = document.createElement("div");
+    const img = document.createElement("img");
+    img.src = arrMenu[i].imageURL;
+    const detail1 = document.createElement("div");
+    // const name =
+  }
+}
+
+
+
+// MENU PAGE ================================================================================================
 
 // main content container
 const content = document.querySelector("#content");
 const container = document.querySelector(".container");
 container.style.backgroundImage = `url(${barImg})`;
 
-// load review
-const arrReview = [];
-const google = new Review("Google", googleLogo, 5);
-const michelin = new Review("Michelin Guide", michelinStar, 1);
-arrReview.push(google);
-arrReview.push(michelin);
-loadReview(arrReview);
+// selector and event listeners
+const homeBtn = document.querySelector(".home-btn");
+const menuBtn = document.querySelector(".menu-btn");
+const aboutBtn = document.querySelector(".about-btn");
 
-// load commendation
-const arrCommendation = [];
-const xn = new Commendation("Xiang Neng", "CEO, XN's Paradise", "I had an absolutely wonderful experience dining here. From the moment I walked in, the atmosphere was warm and inviting, and the staff made me feel genuinely welcome. The food was beautifully presented and bursting with flavor—clearly prepared with care and high-quality ingredients. Every detail, from the attentive service to the perfectly balanced dishes, reflected a true passion for hospitality. I highly recommend this restaurant to anyone looking for an exceptional dining experience, and I cannot wait to return.")
-const xz = new Commendation("xz", "Attorney General, Department of Justice", "Fantastic food, welcoming atmosphere, and truly attentive service. Every dish was flavorful and beautifully prepared. A great place to enjoy a memorable meal—I’ll definitely be back!")
-arrCommendation.push(xn);
-arrCommendation.push(xz);
-loadCommendation(arrCommendation);
+homeBtn.addEventListener("click", () => {
+  if (currentPage != "home") {
+    loadHome();
+  }
+});
 
-// load location
-const loc = new Location(locationPNG, "1 Bayfront Avenue, Hotel, Tower 3 Marina Bay Sands, 018971");
-loadLocationDetails(loc);
+menuBtn.addEventListener("click", () => {
+  if (currentPage != "menu") {
+    // loadMenu();
+  }
+});
 
-//load instructions
-const arrInstr = [];
-const instr_1 = new Instructions(
-  "The Day Begins",
-  "Awaken your senses with artisan coffee, delicate pastries, and beautifully prepared breakfast dishes inspired by fresh, local ingredients."
-);
+aboutBtn.addEventListener("click", () => {
+  if (currentPage != "about") {
+    // loadAbout();
+  }
+});
 
-const instr_2 = new Instructions(
-  "Midday Delights",
-  "Enjoy a thoughtfully curated lunch experience featuring seasonal flavors, vibrant plates, and satisfying favorites reimagined."
-);
-
-const instr_3 = new Instructions(
-  "Evening ChillOut",
-  "Settle into the evening with refined entrées, signature cocktails, and an inviting ambiance perfect for savoring every moment."
-);
-arrInstr.push(instr_1);
-arrInstr.push(instr_2);
-arrInstr.push(instr_3);
-loadInstructions(arrInstr);
-
-// contacts;
-const contacts = new Contacts("1 Bayfront Avenue, Hotel, Tower 3 Marina Bay Sands, 018971", "(+65) 98761234", "Instagram: @TheTipsyBar", "TheTipsyBar@gmail.com");
-loadContacts(contacts);
+loadHome();

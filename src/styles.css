@@ -48,7 +48,8 @@ header {
     gap: 3em;
     border-bottom: 1px solid black;
     margin-bottom: 50px;
-    background-color: rgb(255, 192, 195);
+    /* background-color: rgb(255, 192, 195); */
+    background-color: rgb(236, 142, 236);
 
     & p {
         font-weight: 900;
