@@ -240,3 +240,88 @@ button:hover {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.2em;
 }
+
+
+.header-container {
+    border-radius: 50px 50px 0 0 ;
+    padding: 20px;
+    background-color: brown;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+
+    & .header {
+        font-size: 7em;
+        color: white;
+        font-weight: 0;
+        font-family: cursive;
+    }
+
+    & .subheader {
+        color: white;
+        font-family: isidora;
+        font-size: 1.5em;
+
+    }
+}
+
+.menu-container {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+
+    & img {
+        height: 600px;
+        border-radius: 50px;
+        object-fit: cover;
+        width: 450px;
+    }
+}
+
+.menu-container > .main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+}
+
+.main-0 {
+background: linear-gradient(
+    180deg,
+    #57a1d2 0%,    /* Soft Blue Sky */
+    #99ccff 40%,   /* Morning Light */
+    #ffc971 70%,   /* Rising Sun Gold */
+    #ffe3a4 100%   /* Matches your previous light yellow */
+);
+}
+
+.main-1 {
+background: linear-gradient(
+    180deg,
+    #4a90e2 0%,    /* Fading Day Blue */
+    #7b61ff 35%,   /* Transition Purple */
+    #ff8c61 65%,   /* Sunset Orange */
+    #2c1654 100%   /* Deep Dusk Purple (Pre-Night) */
+);
+}
+
+.main-2 {
+background: linear-gradient(
+    180deg,
+    #2c1654 0%,    /* Start from Dusk Purple */
+    #120d31 30%,   /* Deep Space Blue */
+    #05051a 70%,   /* Near Black */
+    #000000 100%   /* Midnight Void */
+);
+
+}
+
+.main-3 {
+    background-color: #FF6B6B;
+}

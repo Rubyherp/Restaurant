@@ -3,6 +3,10 @@ import googleLogo from "./images/Google_Logo_1.png";
 import michelinStar from "./images/MichelinStar.svg";
 import locationPNG from "./images/location.png";
 import barImg from "./images/barImg.jpg";
+import coffeeImg from "./images/coffee.jpg";
+import diningImg from "./images/fine-dining.jpg";
+import wineImg from "./images/wine.jpg";
+import cocktailImg from "./images/cocktail.jpg";
 
 // variable 
 let currentPage = "nothome";
@@ -308,77 +312,114 @@ class Category {
   description;
   menuURL;
 
-  constructor(name, time, imageURL, description, meneURL) {
+  constructor(name, time, imageURL, description, menuURL) {
     this.name = name;
     this.time = time;
     this.imageURL = imageURL;
     this.description = description;
-    this.menuURL = meneURL;
+    this.menuURL = menuURL;
   }
 
 }
 
 function loadMenu() {
+  content.innerHTML = "";
+  currentPage = "menu"
   // variables;
   let arrMenu = [];
-  let currCat = 0; // if even right, odd left
 
   // categories
   // not yet add image URl
   const coffee = new Category(
     "Coffee",
     "10:00",
-    "imge URL TBC",
+    coffeeImg,
     "Start your day with our speciality coffee. Smooth, expressive, and crafted with a precise blend of powerful coffee beans and savoury milk",
     "coffee menu link",
   );
   const meal = new Category(
     "Finest Dining",
     "14:00",
-    "image URL TBC",
+    diningImg,
     "Indulge in our finest dining experience, where seasonal ingredients meet culinary artistry. Each dish is thoughtfully crafted to deliver bold flavors, elegant presentation, and a truly memorable gastronomic journey.",
     "meal menu link",
   );
   const wine = new Category(
     "Fine Wines",
     "17:00",
-    "image URL TBC",
+    wineImg,
     "Explore our curated selection of fine wines, featuring elegant reds, crisp whites, and sparkling varieties sourced from renowned vineyards. Each bottle is chosen to perfectly complement your dining experience and elevate every occasion.",
     "wine menu link",
   );
   const cocktail = new Category(
     "Signature Cocktails",
     "20:00",
-    "image URL TBC",
+    cocktailImg,
     "Discover our handcrafted signature cocktails, expertly mixed with premium spirits, fresh ingredients, and creative flair. From timeless classics to bold house creations, each drink is designed to delight and impress.",
     "cocktail menu link",
   );
 
-  catArr.push(coffee);
-  catArr.push(meal);
-  catArr.push(wine);
-  catArr.push(cocktail);
+  arrMenu.push(coffee);
+  arrMenu.push(meal);
+  arrMenu.push(wine);
+  arrMenu.push(cocktail);
 
+  const pageContainer = document.createElement("div");
+  pageContainer.classList.add("page-container");
   const menuContainer = document.createElement("div");
+  menuContainer.classList.add("menu-container");
 
   // header
   const headerContainer = document.createElement("div");
   headerContainer.classList.add("header-container");
   const header = document.createElement("div");
   header.classList.add("header");
+  header.textContent = "The Tipsy Bar";
   const subheader = document.createElement("div");
   subheader.classList.add("subheader");
-  header.textContent = "The Tipsy Bar";
   subheader.textContent = "Since 1978";
 
+  headerContainer.appendChild(header);
+  headerContainer.appendChild(subheader);
+  pageContainer.appendChild(headerContainer);
+
   // stopped here tbc
-  for (let i = 0; i < arrMenu; i++) {
+  for (let i = 0; i < arrMenu.length; i++) {
+    const item = arrMenu[i];
     const main = document.createElement("div");
+    main.classList.add("main");
+    main.classList.add(`main-${i}`);
     const img = document.createElement("img");
-    img.src = arrMenu[i].imageURL;
-    const detail1 = document.createElement("div");
-    // const name =
+    img.src = item.imageURL;
+    const detail = document.createElement("div");
+    
+    const name = document.createElement("p");
+    name.textContent = item.name;
+    const time = document.createElement("p");
+    time.textContent = item.time;
+    const description = document.createElement("p");
+    description.textContent = item.description;
+    const menuLink = document.createElement("a");
+    menuLink.textContent = item.menuURL;
+
+    detail.appendChild(name);
+    detail.appendChild(time);
+    detail.appendChild(description);
+    detail.appendChild(menuLink);
+    
+    if (i % 2 == 0) {
+      main.appendChild(img);
+      main.appendChild(detail);
+    } else {
+      main.appendChild(detail);
+      main.appendChild(img);
+    }
+    const str = `main-${i}`;
+    main.classList.add(str);
+    menuContainer.appendChild(main);
   }
+  pageContainer.appendChild(menuContainer);
+  content.appendChild(pageContainer);
 }
 
 
@@ -403,7 +444,7 @@ homeBtn.addEventListener("click", () => {
 
 menuBtn.addEventListener("click", () => {
   if (currentPage != "menu") {
-    // loadMenu();
+    loadMenu();
   }
 });
 
@@ -413,4 +454,4 @@ aboutBtn.addEventListener("click", () => {
   }
 });
 
-loadHome();
+loadMenu();
