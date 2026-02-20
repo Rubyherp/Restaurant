@@ -335,28 +335,28 @@ function loadMenu() {
     "10:00",
     coffeeImg,
     "Start your day with our speciality coffee. Smooth, expressive, and crafted with a precise blend of powerful coffee beans and savoury milk",
-    "coffee menu link",
+    "coffee menu",
   );
   const meal = new Category(
     "Finest Dining",
     "14:00",
     diningImg,
     "Indulge in our finest dining experience, where seasonal ingredients meet culinary artistry. Each dish is thoughtfully crafted to deliver bold flavors, elegant presentation, and a truly memorable gastronomic journey.",
-    "meal menu link",
+    "meal menu",
   );
   const wine = new Category(
     "Fine Wines",
     "17:00",
     wineImg,
     "Explore our curated selection of fine wines, featuring elegant reds, crisp whites, and sparkling varieties sourced from renowned vineyards. Each bottle is chosen to perfectly complement your dining experience and elevate every occasion.",
-    "wine menu link",
+    "wine menu",
   );
   const cocktail = new Category(
     "Signature Cocktails",
     "20:00",
     cocktailImg,
     "Discover our handcrafted signature cocktails, expertly mixed with premium spirits, fresh ingredients, and creative flair. From timeless classics to bold house creations, each drink is designed to delight and impress.",
-    "cocktail menu link",
+    "cocktail menu",
   );
 
   arrMenu.push(coffee);
@@ -392,15 +392,20 @@ function loadMenu() {
     const img = document.createElement("img");
     img.src = item.imageURL;
     const detail = document.createElement("div");
+    detail.classList.add("category-detail")
     
     const name = document.createElement("p");
     name.textContent = item.name;
+    name.classList.add("detail-name")
     const time = document.createElement("p");
     time.textContent = item.time;
+    time.classList.add("detail-time")
     const description = document.createElement("p");
     description.textContent = item.description;
+    description.classList.add("detail-description")
     const menuLink = document.createElement("a");
-    menuLink.textContent = item.menuURL;
+    menuLink.textContent = "view our " + item.menuURL;
+    menuLink.classList.add("detail-menuLink")
 
     detail.appendChild(name);
     detail.appendChild(time);
@@ -435,6 +440,13 @@ container.style.backgroundImage = `url(${barImg})`;
 const homeBtn = document.querySelector(".home-btn");
 const menuBtn = document.querySelector(".menu-btn");
 const aboutBtn = document.querySelector(".about-btn");
+const logoBtn = document.querySelector(".logo-btn");
+
+logoBtn.addEventListener("click", () => {
+  if (currentPage != "home") {
+    loadHome();
+  }
+});
 
 homeBtn.addEventListener("click", () => {
   if (currentPage != "home") {
@@ -454,4 +466,4 @@ aboutBtn.addEventListener("click", () => {
   }
 });
 
-loadMenu();
+loadHome();

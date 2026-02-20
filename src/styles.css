@@ -24,15 +24,14 @@
     font-display: swap;
 }
 
-body {
-}
+body {}
 
 .container {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     background-size: cover;
-    background-position: bottom;
+    background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
@@ -42,17 +41,21 @@ header {
     justify-content: space-between;
     align-items: center;
     font-family: isidora;
-    font-size: 2em;
     font-weight: 300;
-    padding: 20px 40px;
+    padding: 20px 50px;
     gap: 3em;
-    border-bottom: 1px solid black;
     margin-bottom: 50px;
-    /* background-color: rgb(255, 192, 195); */
-    background-color: rgb(236, 142, 236);
+    background-color: rgba(237, 65, 30, 0.921);
 
-    & p {
-        font-weight: 900;
+    & .logo-btn {
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+
+        & p {
+            font-size: 3em;
+            color: white;
+        }
     }
 
     & nav {
@@ -68,7 +71,8 @@ header {
             background-color: transparent;
             cursor: pointer;
             font-size: inherit;
-            border: 1px solid brown;
+            border: 1px solid white;
+            color: white;
             border-radius: 50px;
             padding: 10px 15px;
 
@@ -76,10 +80,16 @@ header {
     }
 }
 
-button:hover {
-    outline: 3px solid red;
+header .logo-btn:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+nav > button:hover {
+    outline: 3px solid white;
     box-shadow: 1px 1px 1px black;
     transform: rotate(5deg);
+    color: white;
 }
 
 #content {
@@ -93,6 +103,7 @@ button:hover {
     height: auto;
     width: 70%;
     padding: 20px 20px;
+    opacity: 95%;
 }
 
 .review-container {
@@ -104,7 +115,8 @@ button:hover {
     justify-content: space-evenly;
     align-items: center;
     gap: 20px;
-    background-color: rgb(239, 216, 183);
+    background: linear-gradient(135deg, #8b6f47 0%, #a0826d 100%);
+    color: #f5f1e8;
 }
 
 .review {
@@ -112,9 +124,10 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    & > img {
-    height: 100px;
+    color: #f5f1e8;
+
+    &>img {
+        height: 100px;
     }
 }
 
@@ -126,7 +139,8 @@ button:hover {
     justify-content: space-evenly;
     align-items: center;
     gap: 20px;
-    background-color: rgb(233, 200, 158);
+    background: linear-gradient(135deg, #5c2e3a 0%, #8b3a50 100%);
+    color: #f5f1e8;
 }
 
 .commendation {
@@ -139,6 +153,7 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #f5f1e8;
 }
 
 .details {
@@ -150,7 +165,8 @@ button:hover {
 
 .location-container {
     /* border: 1px solid brown; */
-    background-color: rgb(235, 190, 131);
+    background: linear-gradient(135deg, #2d3142 0%, #4a3f6b 100%);
+    color: #f5f1e8;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -168,6 +184,7 @@ button:hover {
     font-family: isidora;
     font-weight: 900;
     font-size: 70%;
+    color: #f5f1e8;
 }
 
 .instructions-container {
@@ -178,7 +195,8 @@ button:hover {
     align-items: center;
     height: auto;
     padding: 20px;
-    background-color: rgb(238, 198, 174);
+    background: linear-gradient(135deg, #1a3a3a 0%, #2d5a5a 100%);
+    color: #f5f1e8;
     gap: 20px;
 
     & .instr-title {
@@ -206,7 +224,8 @@ button:hover {
 .contacts-container {
     /* border: 1px solid red; */
     border-radius: 0px 0px 50px 50px;
-    background-color: rgb(250, 147, 28);
+    background: linear-gradient(135deg, #4a7c7c 0%, #2d5a5a 100%);
+    color: #f5f1e8;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-evenly;
@@ -243,9 +262,16 @@ button:hover {
 
 
 .header-container {
-    border-radius: 50px 50px 0 0 ;
+    border-radius: 50px 50px 0 0;
     padding: 20px;
-    background-color: brown;
+    /* background-color: brown; */
+background: linear-gradient(
+  180deg,
+  #000000 0%,    /* Black */
+  #05051a 25%,   /* Near black */
+  #120d31 60%,   /* Deep night blue */
+  #2c1654 100%   /* Pre-dawn deep violet */
+);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -268,60 +294,128 @@ button:hover {
 }
 
 .menu-container {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: white;
+    border-radius: 0px 0px 50px 50px;
 
     & img {
         height: 600px;
-        border-radius: 50px;
+        border-radius: 20px;
         object-fit: cover;
         width: 450px;
     }
 }
 
-.menu-container > .main {
+.menu-container>.main {
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
+    padding: 20px;
+    gap: 30px;
 }
 
+.main>.category-detail {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+    text-wrap: auto;
+
+    & .detail-name {
+        font-size: 2em;
+        font-family: sofa;
+        letter-spacing: 10%;
+    }
+
+    & .detail-time,
+    .detail-description {
+        font-size: 1.5em;
+        font-family: isidora;
+        font-weight: 700;
+        letter-spacing: 5%;
+    }
+
+    & .detail-menuLink {
+        font-size: 1.1em;
+        font-family: isidora;
+        font-weight: 700;
+        letter-spacing: 5%;
+    }
+
+    & a {
+        cursor: pointer;
+    }
+}
+
+
+
+
+
+
+/* 🌄 Sunrise */
 .main-0 {
-background: linear-gradient(
-    180deg,
-    #57a1d2 0%,    /* Soft Blue Sky */
-    #99ccff 40%,   /* Morning Light */
-    #ffc971 70%,   /* Rising Sun Gold */
-    #ffe3a4 100%   /* Matches your previous light yellow */
-);
+    background: linear-gradient(180deg,
+            #2c1654 0%,
+            /* Pre-dawn deep violet */
+            #4a3f91 25%,
+            /* Early twilight */
+            #ff8c61 60%,
+            /* Warm sunrise orange */
+            #ffc971 100%
+            /* Soft golden morning */
+        );
+    color: #1c1c77;
 }
 
+/* 🌤 Morning → Afternoon */
 .main-1 {
-background: linear-gradient(
-    180deg,
-    #4a90e2 0%,    /* Fading Day Blue */
-    #7b61ff 35%,   /* Transition Purple */
-    #ff8c61 65%,   /* Sunset Orange */
-    #2c1654 100%   /* Deep Dusk Purple (Pre-Night) */
-);
+    background: linear-gradient(180deg,
+            #ffc971 0%,
+            /* Continues from sunrise gold */
+            #99ccff 40%,
+            /* Bright morning sky */
+            #57a1d2 75%,
+            /* Clear afternoon blue */
+            #4a90e2 100%
+            /* Deep daytime blue */
+        );
+    color: #5239d1;
 }
 
+/* 🌇 Sunset */
 .main-2 {
-background: linear-gradient(
-    180deg,
-    #2c1654 0%,    /* Start from Dusk Purple */
-    #120d31 30%,   /* Deep Space Blue */
-    #05051a 70%,   /* Near Black */
-    #000000 100%   /* Midnight Void */
-);
-
+    background: linear-gradient(180deg,
+            #4a90e2 0%,
+            /* Continues from afternoon */
+            #7b61ff 35%,
+            /* Transition violet */
+            #ff8c61 70%,
+            /* Sunset glow */
+            #2c1654 100%
+            /* Dusk purple */
+        );
+    color: #2c1654;
 }
 
+/* 🌌 Night */
 .main-3 {
-    background-color: #FF6B6B;
+    background: linear-gradient(180deg,
+            #2c1654 0%,
+            /* Continues from dusk */
+            #120d31 40%,
+            /* Deep night blue */
+            #05051a 75%,
+            /* Near black */
+            #000000 100%
+            /* Midnight */
+        );
+    color: #ff8c61;
+        border-radius: 0px 0px 50px 50px;
 }
