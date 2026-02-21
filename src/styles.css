@@ -45,7 +45,7 @@ header {
     padding: 20px 50px;
     gap: 3em;
     margin-bottom: 50px;
-    background-color: rgba(237, 65, 30, 0.921);
+    background-color: rgba(123, 32, 13, 0.921);
 
     & .logo-btn {
         cursor: pointer;
@@ -85,7 +85,7 @@ header .logo-btn:hover {
     text-decoration: underline;
 }
 
-nav > button:hover {
+nav>button:hover {
     outline: 3px solid white;
     box-shadow: 1px 1px 1px black;
     transform: rotate(5deg);
@@ -117,6 +117,7 @@ nav > button:hover {
     gap: 20px;
     background: linear-gradient(135deg, #8b6f47 0%, #a0826d 100%);
     color: #f5f1e8;
+    overflow: hidden;
 }
 
 .review {
@@ -145,8 +146,8 @@ nav > button:hover {
 
 .commendation {
     /* border: 1px solid brown; */
-    font-family: sofa;
-    font-weight: normal;
+    font-family: isidora;
+    font-weight: 100;
     font-size: 20px;
     padding: 20px;
     display: flex;
@@ -154,6 +155,7 @@ nav > button:hover {
     justify-content: center;
     align-items: center;
     color: #f5f1e8;
+    letter-spacing: 0.1em;
 }
 
 .details {
@@ -194,10 +196,9 @@ nav > button:hover {
     justify-content: center;
     align-items: center;
     height: auto;
-    padding: 20px;
     background: linear-gradient(135deg, #1a3a3a 0%, #2d5a5a 100%);
     color: #f5f1e8;
-    gap: 20px;
+    overflow: hidden;
 
     & .instr-title {
         font-family: sofa;
@@ -206,10 +207,11 @@ nav > button:hover {
     }
 
     & .instr-content {
+    /* border: 1px solid red; */
         font-family: 'Times New Roman', Times, serif;
         font-size: 1.2em;
         font-weight: 700;
-        letter-spacing: 1px;
+        letter-spacing: 0.1em;
     }
 }
 
@@ -219,6 +221,23 @@ nav > button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.instr-0 {
+    /* border: 1px solid red; */
+    background-color: #d47542;
+    color: #1a233a;
+}
+.instr-1 {
+    /* border: 1px solid red; */
+    background-color: #224364;
+    color: #c6d4f6;
+}
+.instr-2 {
+    /* border: 1px solid red; */
+    background-color: #1a233a;
 }
 
 .contacts-container {
@@ -232,6 +251,8 @@ nav > button:hover {
     align-items: center;
     height: auto;
     padding: 20px;
+    overflow: hidden;
+
 }
 
 .logo {
@@ -264,22 +285,25 @@ nav > button:hover {
 .header-container {
     border-radius: 50px 50px 0 0;
     padding: 20px;
-    /* background-color: brown; */
-background: linear-gradient(
-  180deg,
-  #000000 0%,    /* Black */
-  #05051a 25%,   /* Near black */
-  #120d31 60%,   /* Deep night blue */
-  #2c1654 100%   /* Pre-dawn deep violet */
-);
+    gap: 10px;
+    background: linear-gradient(180deg,
+            #000000 0%,
+            /* Black */
+            #05051a 25%,
+            /* Near black */
+            #120d31 60%,
+            /* Deep night blue */
+            #2c1654 100%
+            /* Pre-dawn deep violet */
+        );
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 300px;
+    width: 100%;
 
     & .header {
-        font-size: 7em;
+        font-size: clamp(2em, 8vw, 7em);
         color: white;
         font-weight: 0;
         font-family: cursive;
@@ -288,8 +312,10 @@ background: linear-gradient(
     & .subheader {
         color: white;
         font-family: isidora;
-        font-size: 1.5em;
-
+        font-size: clamp(1em, 3vw, 1.5em);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
 
@@ -316,7 +342,7 @@ background: linear-gradient(
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 30px;
     gap: 30px;
 }
 
@@ -417,5 +443,5 @@ background: linear-gradient(
             /* Midnight */
         );
     color: #ff8c61;
-        border-radius: 0px 0px 50px 50px;
+    border-radius: 0px 0px 50px 50px;
 }

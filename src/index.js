@@ -151,6 +151,7 @@ function loadInstructions(arrInstr) {
   for (let i = 0; i < arrInstr.length; i++) {
     const div = document.createElement("div");
     div.classList.add("instr");
+    div.classList.add(`instr-${i}`);
     const title = document.createElement("p");
     title.classList.add("instr-title");
     title.textContent = arrInstr[i].title;
@@ -250,13 +251,13 @@ function loadHome() {
   // load commendation
   const arrCommendation = [];
   const xn = new Commendation(
-    "Xiang Neng",
+    "XN",
     "CEO, XN's Paradise",
     "I had an absolutely wonderful experience dining here. From the moment I walked in, the atmosphere was warm and inviting, and the staff made me feel genuinely welcome. The food was beautifully presented and bursting with flavor—clearly prepared with care and high-quality ingredients. Every detail, from the attentive service to the perfectly balanced dishes, reflected a true passion for hospitality. I highly recommend this restaurant to anyone looking for an exceptional dining experience, and I cannot wait to return.",
   );
   const xz = new Commendation(
-    "xz",
-    "Attorney General, Department of Justice",
+    "CNN",
+    "Food Critic 1",
     "Fantastic food, welcoming atmosphere, and truly attentive service. Every dish was flavorful and beautifully prepared. A great place to enjoy a memorable meal—I’ll definitely be back!",
   );
   arrCommendation.push(xn);
@@ -378,9 +379,13 @@ function loadMenu() {
   const subheader = document.createElement("div");
   subheader.classList.add("subheader");
   subheader.textContent = "Since 1978";
+  const motto = document.createElement("div");
+  motto.classList.add("subheader");
+  motto.textContent = "Indulge - Savor - Ascend"
 
   headerContainer.appendChild(header);
   headerContainer.appendChild(subheader);
+  headerContainer.appendChild(motto);
   pageContainer.appendChild(headerContainer);
 
   // stopped here tbc
@@ -431,6 +436,17 @@ function loadMenu() {
 
 // MENU PAGE ================================================================================================
 
+
+// BOOK PAGE ================================================================================================
+
+
+
+
+// BOOK PAGE ================================================================================================
+
+
+
+
 // main content container
 const content = document.querySelector("#content");
 const container = document.querySelector(".container");
@@ -439,7 +455,7 @@ container.style.backgroundImage = `url(${barImg})`;
 // selector and event listeners
 const homeBtn = document.querySelector(".home-btn");
 const menuBtn = document.querySelector(".menu-btn");
-const aboutBtn = document.querySelector(".about-btn");
+const bookBtn = document.querySelector(".book-btn");
 const logoBtn = document.querySelector(".logo-btn");
 
 logoBtn.addEventListener("click", () => {
@@ -460,9 +476,9 @@ menuBtn.addEventListener("click", () => {
   }
 });
 
-aboutBtn.addEventListener("click", () => {
-  if (currentPage != "about") {
-    // loadAbout();
+bookBtn.addEventListener("click", () => {
+  if (currentPage != "book") {
+    // loadBook();
   }
 });
 
