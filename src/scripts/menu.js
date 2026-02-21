@@ -2,7 +2,7 @@ import coffeeImg from "../images/coffee.jpg";
 import diningImg from "../images/fine-dining.jpg";
 import wineImg from "../images/wine.jpg";
 import cocktailImg from "../images/cocktail.jpg";
-import { content, state } from "../shared.js";
+import { state } from "../shared.js";
 // MENU PAGE ================================================================================================
 
 // class

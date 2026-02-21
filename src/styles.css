@@ -207,7 +207,7 @@ nav>button:hover {
     }
 
     & .instr-content {
-    /* border: 1px solid red; */
+        /* border: 1px solid red; */
         font-family: 'Times New Roman', Times, serif;
         font-size: 1.2em;
         font-weight: 700;
@@ -230,11 +230,13 @@ nav>button:hover {
     background-color: #d47542;
     color: #1a233a;
 }
+
 .instr-1 {
     /* border: 1px solid red; */
     background-color: #224364;
     color: #c6d4f6;
 }
+
 .instr-2 {
     /* border: 1px solid red; */
     background-color: #1a233a;
@@ -444,4 +446,45 @@ nav>button:hover {
         );
     color: #ff8c61;
     border-radius: 0px 0px 50px 50px;
+}
+
+.about-container {
+    background-color: white;
+    opacity: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 50px;
+}
+
+.about-header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+}
+
+.about-header-title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 4em;
+    letter-spacing: 0.2em;
+}
+
+.about-header-subheader {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    color: rgb(207, 22, 22);
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+    gap: 20px;
+    font-family: sofa;
+    font-weight: 300;
 }

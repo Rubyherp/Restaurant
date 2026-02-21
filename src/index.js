@@ -2,6 +2,7 @@ import "./styles.css";
 import barImg from "./images/barImg.jpg";
 import loadHome from "./scripts/home.js";
 import loadMenu from "./scripts/menu.js";
+import loadAbout from "./scripts/about.js";
 import { state, content } from "./shared.js";
 
 // main content container
@@ -11,7 +12,7 @@ container.style.backgroundImage = `url(${barImg})`;
 // selector and event listeners
 const homeBtn = document.querySelector(".home-btn");
 const menuBtn = document.querySelector(".menu-btn");
-const bookBtn = document.querySelector(".book-btn");
+const aboutBtn = document.querySelector(".about-btn");
 const logoBtn = document.querySelector(".logo-btn");
 
 logoBtn.addEventListener("click", () => {
@@ -32,9 +33,9 @@ menuBtn.addEventListener("click", () => {
   }
 });
 
-bookBtn.addEventListener("click", () => {
-  if (currentPage != "book") {
-    // loadBook();
+aboutBtn.addEventListener("click", () => {
+  if (state.currentPage != "about") {
+    loadAbout();
   }
 });
 
